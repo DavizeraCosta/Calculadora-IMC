@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #000000, #575757, #ffffff);
+    background-size: 200% 200%;
+    color: white;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    animation: animateBackground 15s infinite alternate ease-in-out;
+}
+
+@keyframes animateBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+#background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(245, 0, 87, 0.2) 0%, rgba(21, 21, 21, 0.9) 100%);
+    z-index: -1;
+    animation: neonFlow 5s infinite alternate ease-in-out;
+}
+
+@keyframes neonFlow {
+    from {
+        filter: brightness(1);
+    }
+    to {
+        filter: brightness(1.2);
+    }
+}
+
+#container {
+    background: rgba(0, 0, 0, 0.863);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(245, 0, 87, 0.8);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 5px #f50057, 0 0 10px #f50057;
+}
+
+.input-box {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #f50057;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease-in-out;
+    backdrop-filter: blur(5px);
+}
+
+input:focus {
+    border-color: #ff4081;
+    box-shadow: 0 0 15px #ff4081, 0 0 30px #ff4081;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+button {
+    background: linear-gradient(135deg, #f50057, #ff4081);
+    color: white;
+    padding: 12px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0 0 10px #f50057, 0 0 20px rgba(255, 64, 129, 0.6);
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+    transition: 0.3s ease-in-out;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255, 64, 129, 0.8);
+}
+
+#result {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-shadow: 0 0 15px rgba(255, 64, 129, 0.8);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+#result.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 8px;
+        box-shadow: none;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 16px;
+        box-shadow: 0 0 10px rgba(245, 0, 87, 0.6);
+    }
+
+    #container {
+        padding: 15px;
+    }
+}
